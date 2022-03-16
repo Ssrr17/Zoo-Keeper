@@ -1,0 +1,24 @@
+{
+  "name": "zoo-keeper",
+  "version": "1.0.0",
+  "description": "Module 11 - Express.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ssrr17/Zoo-Keeper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ssrr17/Zoo-Keeper/issues"
+  },
+  "homepage": "https://github.com/Ssrr17/Zoo-Keeper#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
