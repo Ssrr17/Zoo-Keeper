@@ -1,3 +1,4 @@
+
 const express = require("express");
 const fs = require('fs');
 const path = require ('path');
@@ -6,6 +7,7 @@ const { animals } = require("./data/animals");
 const PORT = process.env.PORT || 3001;
 //To instantiate the server
 const app = express();
+app.use(express.static('public'));
 
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
@@ -124,6 +126,20 @@ app.post("/api/animals", (req, res) => {
   // req.body is where our incoming content will be
   // console.log(req.body);
   // res.json(req.body);
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+app.get('/animals', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+app.get('/zookeepers', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+//The * will act as a wildcard, meaning any route that wasn't previously defined will fall under this request
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
 });
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
